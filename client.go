@@ -5,7 +5,7 @@ package meteomatics
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -94,7 +94,7 @@ func (c *Client) Request(ctx context.Context, ts TimeStringer, ps ParameterStrin
 	defer resp.Body.Close()
 
 	if resp.StatusCode < http.StatusOK || http.StatusMultipleChoices <= resp.StatusCode {
-		respBody, _ := ioutil.ReadAll(resp.Body)
+		respBody, _ := io.ReadAll(resp.Body)
 		return nil, &Error{
 			Request:      req,
 			Response:     resp,
@@ -102,7 +102,7 @@ func (c *Client) Request(ctx context.Context, ts TimeStringer, ps ParameterStrin
 		}
 	}
 
-	return ioutil.ReadAll(resp.Body)
+	return io.ReadAll(resp.Body)
 }
 
 // Values returns the url.Values that set the request options defined by o.
