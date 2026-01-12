@@ -44,7 +44,7 @@ type RequestOptions struct {
 }
 
 type TransportOptions struct {
-	Method string // http.MethodGet, http.MethodPost
+	Method string
 }
 
 // WithBaseURL sets the base URL.
