@@ -10,6 +10,8 @@ API](https://www.meteomatics.com/en/api/overview/).
 
 * Idomatic Go API.
 * Support for CSV, JSON, and PNG requests.
+* Support for GET and POST requests.
+* Support for Basic and Bearer auth.
 * Support for all location types.
 * Support for all parameters.
 * Support for all time types.
